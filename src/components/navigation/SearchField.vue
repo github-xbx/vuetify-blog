@@ -31,11 +31,24 @@ export default {
     //...mapGetters(['searchItems'])
   },
   watch: {
+    $route:{
+      immediate:true,
+      handler(){
+        if(this.$route.query.s){//需要监听的参数
+          this.searchValue = this.$route.query.s
+        }else {
+          this.searchValue = null
+        }
+      }
+    }
 
   },
   methods: {
     search(value){
-      console.log(value)
+      if (value !== null && value !== ''){
+
+        this.$router.push({path:'/search',query:{s:value}})
+      }
     }
   }
 }

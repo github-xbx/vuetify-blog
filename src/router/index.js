@@ -6,10 +6,13 @@ import Search from "@/view/Search"
 import Category from "@/view/Category"
 import Label from "@/view/Label"
 import Articles from "../view/Articles";
+import ArticlesEdit from "@/view/ArticlesEdit"
+import UserId from "../view/UserId";
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
 
     {
@@ -23,11 +26,21 @@ export default new Router({
       name: 'all-articles',
     },
     {
-      path: '/articles/{id}',
+      path: '/articles/:articlesId',
       component:Articles,
       name: 'articles-view'
     },
+    {
+      path: '/edit/articles',
+      component: ArticlesEdit,
+      name: 'ArticlesEdit'
+    },
 
+    {
+      path: '/category/:categoryName',
+      component: Category,
+      name: 'category-view-name'
+    },
     {
       path: '/category',
       component: Category,
@@ -42,6 +55,11 @@ export default new Router({
       path: '/search',
       component: Search,
       name: 'search-view',
+    },
+    {
+      path: '/user/:userId',
+      component: UserId,
+      name: 'user-view'
     },
   ]
 })

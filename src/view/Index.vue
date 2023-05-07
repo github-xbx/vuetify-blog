@@ -75,7 +75,7 @@
                       <v-carousel-item
                         v-for="(item,i) in imageRecommendInfo.carouselList" :key="i"
                         :src="item.articleImageUrl"
-                        to="/articles/{id}"
+                        :to="`/articles/${item.articleId}`"
                       >
                         <v-fade-transition>
                           <v-overlay
@@ -102,7 +102,7 @@
                     <v-hover>
 
                       <template v-slot:default="{ hover }">
-                        <router-link to="/articles/{id}">
+                        <router-link :to="`/articles/${item.articleId}`">
 
                           <v-img max-width="100%" min-height="200px" max-height="200px" class="rounded-lg"
                                  :src="item.articleImageUrl">
@@ -157,7 +157,7 @@
 
                 <template v-for="(item, index) in items1.slice(0, 6)">
 
-                  <router-link to="/articles/{id}" class="">
+                  <router-link :to="`/articles/${item.articleId}`" class="">
                     <v-chip color="indigo" text-color="white" small>99</v-chip>&nbsp;
                     <span v-html="item.title" class="dianji "></span>
                   </router-link>
@@ -178,7 +178,7 @@
 
               <v-list>
                 <v-list-item v-for="(item, index) in items1.slice(0, 6)" :key="index" class="mb-3">
-                  <v-card to="/articles/{id}" class="" outlined>
+                  <v-card :to="`/articles/${item.articleId}`" class="" outlined>
                     <v-img
                       :src="item.avatar"
                       max-height="100"
@@ -216,18 +216,21 @@ export default {
   data: () => ({
     items1: [
       {
+        articleId:1,
         avatar: 'https://xbx-blog.oss-cn-beijing.aliyuncs.com/blog_image/test01.jpeg',
         title: '基于vue+vuetify开发的博客系统前端',
         subtitle: `<span class="font-weight-bold">Ali Connors</span> &mdash; I'll be in your neighborhood doing errands this weekend. Do you want to hang out?`
       },
 
       {
+        articleId:1,
         avatar: 'https://xbx-blog.oss-cn-beijing.aliyuncs.com/blog_image/test01.jpeg',
         title: '基于spring boot 开发的博客后台搭建',
         subtitle: `<span class="font-weight-bold">to Alex, Scott, Jennifer</span> &mdash; Wish I could come, but I'm out of town this weekend.`
       },
 
       {
+        articleId:1,
         avatar: 'https://xbx-blog.oss-cn-beijing.aliyuncs.com/blog_image/test01.jpeg',
         title: 'linu下docker部署 spring boot项目',
         subtitle: '<span class="font-weight-bold">Sandra Adams</span> &mdash; Do you have Paris recommendations? Have you ever been?'
@@ -239,16 +242,19 @@ export default {
     imageRecommendInfo: {
       carouselList: [
         {
+          articleId:1,
           articleImageUrl: 'https://xbx-blog.oss-cn-beijing.aliyuncs.com/blog_image/test03.jpeg',
           articleTitle: '基于vue+vuetify开发的博客系统前端'
 
         },
         {
+          articleId:1,
           articleImageUrl: 'https://xbx-blog.oss-cn-beijing.aliyuncs.com/blog_image/test01.jpeg',
           articleTitle: '基于spring boot 开发的博客后台搭建'
 
         },
         {
+          articleId:1,
           articleImageUrl: 'https://xbx-blog.oss-cn-beijing.aliyuncs.com/blog_image/test02.jpeg',
           articleTitle: 'linu下docker部署 spring boot项目'
 
@@ -256,11 +262,13 @@ export default {
       ],
       imageRecommendList: [
         {
+          articleId:1,
           articleImageUrl: 'https://guli-xbx.oss-cn-beijing.aliyuncs.com/myblog/test2.jpg',
           articleTitle: 'spring cloud alibaba 环境搭建'
 
         },
         {
+          articleId:1,
           articleImageUrl: 'https://guli-xbx.oss-cn-beijing.aliyuncs.com/myblog/test.jpg',
           articleTitle: 'spring cloud gateway 权限过滤'
 
